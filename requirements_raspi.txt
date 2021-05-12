@@ -1,0 +1,8 @@
+flask
+gunicorn
+greenlet
+gevent
+opencv-python-headless
+RPi.GPIO
+picamera
+numpy==1.19.3
