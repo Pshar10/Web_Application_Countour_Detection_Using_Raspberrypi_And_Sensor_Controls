@@ -4,13 +4,16 @@ import time
 import cv2
 import numpy as np
 import base64
-
 global p
 global q
 global r
 global s
 
 opencv_controller = OpenCVController()
+
+
+
+
 
 for i in range(5):
   frame = opencv_controller.get_frame(Camera())
@@ -78,43 +81,77 @@ for i in range(5):
 
 
     
-  contours, hierarchy = cv2.findContours(blue_mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-  for pic, contour in enumerate(contours):
-        area = cv2.contourArea(contour)
-        if(area > 10000):
-                    x, y, w, h = cv2.boundingRect(contour)
-                    img = cv2.rectangle(img, (x, y),(x +w, y + h),(255, 0, 0), 2)
-                    cv2.putText(img, "Zone", (x, y),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.0,
-                    (255, 0, 0))
+#   contours, hierarchy = cv2.findContours(blue_mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+#   for pic, contour in enumerate(contours):
+#         area = cv2.contourArea(contour)
+#         if(area > 10000):
+#                     x, y, w, h = cv2.boundingRect(contour)
+#                     imageFrame = cv2.rectangle(img, (x, y),(x +w, y + h),(255, 0, 0), 2)
+#                     cv2.putText(img, "Blue Colour", (x, y),
+#                     cv2.FONT_HERSHEY_SIMPLEX, 1.0,
+#                     (255, 0, 0))
 
-                    p=x
-                    q=y
-                    r=w
-                    s=h 
+
 
    
 
-  contours, hierarchy = cv2.findContours(red_mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-  for pic, contour in enumerate(contours):
+#   contours, hierarchy = cv2.findContours(red_mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+#   for pic, contour in enumerate(contours):
+#         area = cv2.contourArea(contour)
+#         if(area > 5000):
+#                     x, y, w, h = cv2.boundingRect(contour)
+#                     imageFrame = cv2.rectangle(img, (x, y),(x +w, y + h),(0, 0, 255), 2)
+            
+#                     cv2.putText(img, "Red Colour", (x, y),
+#                     cv2.FONT_HERSHEY_SIMPLEX, 1.0,
+#                     (0, 0, 255))
+
+contours, hierarchy = cv2.findContours(blue_mask,
+                                           cv2.RETR_TREE,
+                                           cv2.CHAIN_APPROX_SIMPLE)
+for pic, contour in enumerate(contours):
+        area = cv2.contourArea(contour)
+        if(area > 10000):
+            x, y, w, h = cv2.boundingRect(contour)
+            img = cv2.rectangle(img, (x, y),
+                                       (x + w, y + h),
+                                       (255, 0, 0), 2)
+              
+            cv2.putText(img, "Zone", (x, y),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        1.0, (255, 0, 0))
+            p=x
+            q=y
+            r=w
+            s=h  
+    # Creating contour to track red color
+contours1, hierarchy1 = cv2.findContours(red_mask,
+                                           cv2.RETR_TREE,
+                                           cv2.CHAIN_APPROX_SIMPLE)
+      
+for pic, contour in enumerate(contours1):
         area = cv2.contourArea(contour)
         if(area > 5000):
-                    x1, y1, w1, h1 = cv2.boundingRect(contour)
-                    img = cv2.rectangle(img, (x1, y1),(x1 +w1, y1+ h1),(0, 0, 255), 2)
-            
-                    cv2.putText(img, "Mark", (x1, y1),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.0,
-                    (0, 0, 255))
-                    if ((p+r>x1>p) and (p<x1+w1<p+r)):
-                      print("In_zone")
-                    else:
-                      print("Not_in_zone")
+            x1, y1, w1, h1 = cv2.boundingRect(contour)
+            img = cv2.rectangle(img, (x1, y1), 
+                                    (x1 + w1, y1 + h1), 
+                                    (0, 0, 255), 2)
+              
+            cv2.putText(img, "Mark", (x1, y1),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.0,
+                        (0, 0, 255))                 
+            # if ((p+r>x1>p) and (p<x1+w1<p+r)): 
+            #         print("In-Zone")
+            # else: 
+            #         print("Not in Zone")
 
-  cv2.imshow('image', img) 
+
+cv2.imshow('image', img) 
+
+print("Is in zone: ", opencv_controller.is_in_zone())
+print("---------------------------------")
 
 
-  #print("Is in zone: ", opencv_controller.is_in_zone())
-  print("---------------------------------")
   
-  cv2.waitKey(0)
-  cv2.destroyAllWindows()
+cv2.waitKey(0)
+cv2.destroyAllWindows()
