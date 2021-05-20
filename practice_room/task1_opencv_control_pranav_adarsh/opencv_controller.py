@@ -13,4 +13,5 @@ class OpenCVController(object):
         return frame
 
     def is_in_zone(self):
+        
         return self.in_zone
