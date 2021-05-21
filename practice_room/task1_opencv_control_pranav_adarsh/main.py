@@ -105,16 +105,21 @@ for i in range(5):
                     cv2.putText(img, "Mark", (x1, y1),
                     cv2.FONT_HERSHEY_SIMPLEX, 1.0,
                     (0, 0, 255))
-                    if ((p+r>x1>p) and (p<x1+w1<p+r)):
-                      print("In_zone")
+                    if ((p+r>x1>p) or (p<x1+w1<p+r)):
+                        opencv_controller.in_zone = True
+                        print("Is in zone: ", opencv_controller.is_in_zone())
+                        print("---------------------------------")
                     else:
-                      print("Not_in_zone")
+                        opencv_controller.in_zone = False
+                        print("Is in zone: ", opencv_controller.is_in_zone())
+                        print("---------------------------------")
+
 
   cv2.imshow('image', img) 
 
 
-  #print("Is in zone: ", opencv_controller.is_in_zone())
-  print("---------------------------------")
+  # print("Is in zone: ", opencv_controller.is_in_zone())
+  # print("---------------------------------")
   
   cv2.waitKey(0)
   cv2.destroyAllWindows()
