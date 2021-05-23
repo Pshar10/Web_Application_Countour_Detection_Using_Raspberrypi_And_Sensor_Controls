@@ -6,8 +6,9 @@ import time
 import cv2
 import numpy as np
 import base64
-
-#Setting the global variables
+import warnings
+warnings.simplefilter("ignore", DeprecationWarning)
+# Setting the global variables
 
 global p
 global q
