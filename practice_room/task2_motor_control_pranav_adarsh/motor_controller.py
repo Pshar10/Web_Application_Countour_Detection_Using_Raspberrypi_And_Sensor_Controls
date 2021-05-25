@@ -14,7 +14,6 @@ class MotorController(object):
     self.working = True
     SPR = 200 # 1 step = 0.225 degree  and we have to rotate for 45 degrees
 
-    # ...
     print('Motor started')
 
     GPIO.setmode(GPIO.BCM)
