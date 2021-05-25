@@ -31,11 +31,15 @@ for i in range(5):
   blue_upper = np.array([102, 250, 211], np.uint8)
   blue_mask = cv2.inRange(hsvFrame, blue_lower, blue_upper)
 
-  #Setting Range ofr Red zone
+  #Setting Range for Red zone
   red_lower = np.array([0, 183, 107], np.uint8)
   red_upper = np.array([0, 220, 161], np.uint8)
   red_mask = cv2.inRange(hsvFrame, red_lower, red_upper)
- 
+  
+
+
+
+
   #Setting up kernal(here 10*10) can also be (5*5)
   kernal = np.ones((10, 10), "uint8")
 
