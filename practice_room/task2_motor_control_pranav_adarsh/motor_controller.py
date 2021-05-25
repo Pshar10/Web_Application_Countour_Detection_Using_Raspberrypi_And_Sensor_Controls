@@ -8,31 +8,30 @@ class MotorController(object):
   def __init__(self):
     self.working = False
 
+    
+  def is_working(self):   #was at last of the code changed the postitpn
+    return self.working
+
   def start_motor(self):
     self.PIN_STEP = 25 # do not change
     self.PIN_DIR = 8 # do not change
     self.working = True
     SPR = 200 # 1 step = 0.225 degree  and we have to rotate for 45 degrees
-<<<<<<< HEAD
-
-    print('Motor started')
-=======
-    CW=1 # clockwise
-    CCW=0 #anti clockwise
+    # CW=1 # clockwise
+    # CCW=0 #anti clockwise
     # ...
-    print('Motor working status: Started') # showing status of motor to started
->>>>>>> 75e489ea4fd1800ea6fbd232c608e0384a6c4c1c
-
+    #print('Motor working status: Started') # showing status of motor to started
+    
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(self.PIN_DIR, GPIO.OUT)
     GPIO.setup(self.PIN_STEP, GPIO.OUT)
 
-  
+
     print("Starting to rotate in clockwise direction for 45 degrees")
     GPIO.output(self.PIN_DIR,GPIO.LOW)
     step_count = SPR
     delay = 0.005
-
+    print(self.working)
     for x in range(step_count):
       GPIO.output(self.PIN_STEP,GPIO.HIGH)
       time.sleep(delay)
@@ -72,10 +71,9 @@ class MotorController(object):
 
     self.working = False
 
-    print("Motor Working Status: Stopped") ## showing status of motor to started
+    #print("Motor Working Status: Stopped") ## showing status of motor to started
+    print(self.working)
 
 
 
-  
-  def is_working(self):   #was at last of the code changed the postitpn
-    return self.working
+
