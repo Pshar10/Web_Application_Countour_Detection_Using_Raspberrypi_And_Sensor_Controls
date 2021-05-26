@@ -8,13 +8,13 @@ class OpenCVController(object):
         print('OpenCV controller initiated')
 
     def get_frame(self, camera):
-       
+          
         # Starting the code
         global p
         global q
         global r
         global s
-
+        print('---------Monitoring:------------')
         frame = camera.get_frame()
         jpg_as_np = np.fromstring(frame, np.uint8)  
         img = cv2.imdecode(jpg_as_np, cv2.COLOR_BGR2RGB)
@@ -93,9 +93,11 @@ class OpenCVController(object):
 
 
 
-        print('Monitoring')
+
         
-        return img
+        
+        ret, jpeg = cv2.imencode('.jpg', img)
+        return jpeg.tobytes()
 
     def is_in_zone(self):
         

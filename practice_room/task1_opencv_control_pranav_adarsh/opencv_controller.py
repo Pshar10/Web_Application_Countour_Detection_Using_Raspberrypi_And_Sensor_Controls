@@ -95,7 +95,9 @@ class OpenCVController(object):
 
         print('Monitoring')
         
-        return img
+        #return img
+        ret, jpeg = cv2.imencode('.jpg', img)
+        return jpeg.tobytes()
 
     def is_in_zone(self):
         
