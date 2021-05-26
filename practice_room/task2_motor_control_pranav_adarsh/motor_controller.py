@@ -47,7 +47,7 @@ class MotorController(object):
 
     for x in range(step_count):
       GPIO.output(self.PIN_STEP,GPIO.HIGH)
-      time.sleep(delay)
+      time.sleep(0.003)
       GPIO.output(self.PIN_STEP,GPIO.LOW)
 
     print("Motor has rotated clockwise for 75 degrees now changing the direction ")
@@ -58,7 +58,7 @@ class MotorController(object):
     print("Motor Started rotating 45 degree anticlockwise")
     GPIO.output(self.PIN_DIR,GPIO.HIGH)
     step_count = SPR
-    delay = 0.3
+    delay = 0.005
     for x in range(step_count):
       GPIO.output(self.PIN_STEP,GPIO.HIGH)
       time.sleep(delay)
