@@ -1,20 +1,20 @@
 import cv2
-import numpy as np
+import numpy as np #used here for dealing with different arrays
 
 class OpenCVController(object):
 
-    def __init__(self):
+    def __init__(self):  #used here to define all the instances   
         self.in_zone = False
         print('OpenCV controller initiated')
 
     def get_frame(self, camera):
-          
+       
         # Starting the code
         global p
         global q
         global r
         global s
-        print('---------Monitoring:------------')
+
         frame = camera.get_frame()
         jpg_as_np = np.fromstring(frame, np.uint8)  
         img = cv2.imdecode(jpg_as_np, cv2.COLOR_BGR2RGB)
@@ -54,7 +54,7 @@ class OpenCVController(object):
 
   # Process to find the Contours -Each individual contour is a Numpy array of (x,y) coordinates of boundary points of the object.
   
-        contours, hierarchy = cv2.findContours(blue_mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+        contours, hierarchy = cv2.findContours(blue_mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE) #CHAIN_APPROX_SIMPLE is used to remove all the redundant points, RETR_TREE retrieves all the contours
 
         for pic, contour in enumerate(contours):
             area = cv2.contourArea(contour)
@@ -93,9 +93,9 @@ class OpenCVController(object):
 
 
 
-
+        print('Monitoring')
         
-        
+        #return img
         ret, jpeg = cv2.imencode('.jpg', img)
         return jpeg.tobytes()
 

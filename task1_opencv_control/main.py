@@ -17,11 +17,9 @@ print("\n")
 
 for i in range(5):
   frame = opencv_controller.get_frame(Camera())
-  
-#   Display in window
+  #   Display in window
   jpg_as_np = np.fromstring(frame, np.uint8)
-  img = cv2.imdecode(jpg_as_np, cv2.COLOR_BGR2RGB) 
-
+  img = cv2.imdecode(jpg_as_np, cv2.COLOR_BGR2RGB)
   cv2.imshow('image', img)
   print("Is in zone: ", opencv_controller.is_in_zone())
   print("---------------------------------")
