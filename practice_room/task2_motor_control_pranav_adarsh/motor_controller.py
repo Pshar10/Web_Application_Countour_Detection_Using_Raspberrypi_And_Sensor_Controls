@@ -43,7 +43,7 @@ class MotorController(object):
    
     print("Aiming for 75 degrees")
 
-    step_count = 333 # for 30 degree more rotation
+    step_count = 333 # for 75 degree more rotation
 
     for x in range(step_count):
       GPIO.output(self.PIN_STEP,GPIO.HIGH)
