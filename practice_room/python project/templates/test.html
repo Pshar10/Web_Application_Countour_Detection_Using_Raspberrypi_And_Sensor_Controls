@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Rod tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='vendor/axios/axios.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+  </head>
+  <body>
+    <section id="streaming_viewer">
+      <h1 align="center">Rod tracker</h1>
+      <img id="background" class="center" src="{{ url_for('video_feed') }}">
+    </section>
+
+    <section id="actions">
+      <h2>Actions</h2>
+        <div>
+          <!-- 'Stop in zone' checkbox with corresponding request changing value clicking -->
+          <button onclick="updateMonitoringData()">Start Motor</button>
+
+          <!-- 'Stop system' button with corresponding request after clicking -->
+          <!-- ... -->
+        </div>
+    </div>
+  </section>
+
+  <section id="monitoring_info">
+    <h2>Monitoring information</h2>
+    <!-- HTML elements for 'Motor status' information -->
+    <!-- ... -->
+    <p><b>Status:</b> <span id="status_text"></span></p>
+
+    <!-- HTML elements for 'Distance' information -->
+    <!-- ... -->
+    <div>distance:<span id="distance"></span> </div>
+    <!-- HTML elements for 'Is in zone?' information -->
+    <p>Is in Zone?:<span id="inZone"> </span></p>
+  </section>
+  </body>
+</html>
