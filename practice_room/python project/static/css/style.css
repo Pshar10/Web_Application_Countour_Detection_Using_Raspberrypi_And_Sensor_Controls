@@ -11,3 +11,9 @@ section {
   margin-right: auto;
   height: 60%;
 }
+
+.monitor {
+font-size: 33px;
+text-transform:uppercase;
+font-style: italic;
+}

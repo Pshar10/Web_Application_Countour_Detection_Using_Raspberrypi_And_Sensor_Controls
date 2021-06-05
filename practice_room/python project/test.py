@@ -29,23 +29,15 @@ def video_feed():
     return Response(get_frame(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/start_motor')
-def start_motor():
-    # ... 
-
-    return { 'success': True }
 
 @app.route('/monitor')
 def monitor():
+    
     return jsonify({
         "inZone": opencv_controller.is_in_zone(),
         "distance": sensor_controller.get_distance()
         })
 
-@app.route('/stop_system')
-def stop_system():
-    # ...
-    return { 'success': True }
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

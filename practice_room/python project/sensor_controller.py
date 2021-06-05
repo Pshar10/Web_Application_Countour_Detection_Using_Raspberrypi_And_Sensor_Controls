@@ -17,7 +17,7 @@ class SensorController:
     GPIO.setup(self.PIN_ECHO, GPIO.IN)
     GPIO.output(self.PIN_TRIGGER, GPIO.LOW)    
     print( "Waiting for sensor to settle")
-    time.sleep(2)
+    # time.sleep(2)
     print('Monitoring')
     GPIO.output(self.PIN_TRIGGER, GPIO.HIGH)
     time.sleep(0.00001)
@@ -30,6 +30,7 @@ class SensorController:
             pulse_end_time = time.time()
     pulse_duration = pulse_end_time - pulse_start_time
     self.distance = round(pulse_duration * 171.50, 2)
+    
 
   def get_distance(self):
     return self.distance

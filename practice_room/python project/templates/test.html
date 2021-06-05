@@ -11,29 +11,29 @@
       <img id="background" class="center" src="{{ url_for('video_feed') }}">
     </section>
 
-    <section id="actions">
-      <h2>Actions</h2>
-        <div>
+    <!-- <section id="actions"> -->
+      <!-- <h2>Actions</h2> -->
+        <!-- <div> -->
           <!-- 'Stop in zone' checkbox with corresponding request changing value clicking -->
-          <button onclick="updateMonitoringData()">Start Motor</button>
+          <!-- <button onclick="updateMonitoringData()">Start Motor</button> -->
 
           <!-- 'Stop system' button with corresponding request after clicking -->
           <!-- ... -->
-        </div>
-    </div>
-  </section>
+        <!-- </div> -->
+    <!-- </div> -->
+  <!-- </section> -->
 
   <section id="monitoring_info">
-    <h2>Monitoring information</h2>
+    <h2>Monitoring information for the "Fake Camera":</h2>
     <!-- HTML elements for 'Motor status' information -->
     <!-- ... -->
-    <p><b>Status:</b> <span id="status_text"></span></p>
+    <!-- <p><b>Status:</b> <span id="status_text"></span></p> -->
 
     <!-- HTML elements for 'Distance' information -->
     <!-- ... -->
-    <div>distance:<span id="distance"></span> </div>
+    <!-- <div>distance:<span id="distance"></span> </div> -->
     <!-- HTML elements for 'Is in zone?' information -->
-    <p>Is in Zone?:<span id="inZone"> </span></p>
+    <div class="monitor">Is in Zone?:&nbsp;&nbsp;<span id="inZone"> </span></div>
   </section>
   </body>
 </html>

@@ -13,6 +13,8 @@ class MotorController(object):
     return self.working
 
   def start_motor(self):
+
+    #pin definition
     self.PIN_STEP = 25 # do not change
     self.PIN_DIR = 8 # do not change
     self.working = True
@@ -22,12 +24,15 @@ class MotorController(object):
     # ...
     #print('Motor working status: Started') # showing status of motor to started
     
+    # PIN SETUP MODE
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(self.PIN_DIR, GPIO.OUT)
     GPIO.setup(self.PIN_STEP, GPIO.OUT)
 
 
     print("Starting to rotate in clockwise direction for 45 degrees")
+
+    # Motor direction setup Clockwise
     GPIO.output(self.PIN_DIR,GPIO.LOW)
     step_count = SPR
     delay = 0.005
@@ -54,7 +59,7 @@ class MotorController(object):
     time.sleep(0.5)
 
 
-    
+    # Motor direction setup AntiClockwise
     print("Motor Started rotating 45 degree anticlockwise")
     GPIO.output(self.PIN_DIR,GPIO.HIGH)
     step_count = SPR
@@ -69,11 +74,24 @@ class MotorController(object):
 
     time.sleep(0.5)
 
-    self.working = False
+    
 
     #print("Motor Working Status: Stopped") ## showing status of motor to started
     print(self.working)
 
+  def stop_motor(self):
 
+    #pin definition
+    self.PIN_STEP = 25 # do not change
+    self.PIN_DIR = 8 # do not change
+    self.working = False
+    
+    # PIN SETUP MODE
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(self.PIN_DIR, GPIO.OUT)
+    GPIO.setup(self.PIN_STEP, GPIO.OUT)
+
+    # Setting stepper pin low
+    GPIO.output(self.PIN_STEP,GPIO.LOW)
 
 

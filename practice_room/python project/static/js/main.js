@@ -1,4 +1,4 @@
-let monitoring
+let monitoring = false 
 
 /**
  * Function to request the server to start the motor
@@ -6,7 +6,7 @@ let monitoring
 async function requestStartMotor () {
   try {
     // Make request to server
-    await axios.post('/start_motor')
+    await axios.get('/start_motor')
 
     // Update status
     updateStatus('Working')
@@ -24,6 +24,8 @@ async function startMonitoring () {
   monitoring = true
   while (monitoring) {
     let result = await axios.get('/monitor')
+    console.log(result.data.inZone)
+    console.log(result.data.distance)
     updateMonitoringData(result.data)
   }
 }
@@ -31,28 +33,34 @@ async function startMonitoring () {
 /** 
  * Stop monitoring
  */
-function stopMonitoring () {
+function stopMonitoring (result) {
   monitoring = false
+
+  document.getElementById('inZone').innerHTML= result.inZone
+  document.getElementById('distance').innerHTML= result.distance
 }
 
 /**
  * Function to request monitoring data to the server and display it in the main page
  */
-function updateMonitoringData () {
-  // Get HTML elements where results are displayed
-  // ...
-  var xhttp = new XMLHttpRequest()
-  xhttp.onreadystatechange = function()
-    {
-      if (this.readyState == 4 && this.status == 200)
-      {
-        document.getElementById("inZone").innerHTML =
-        this.responseText;
-      }
+function updateMonitoringData (result){
 
-    }
-  xhttp.open("GET", "inZone", true);
-  xhttp.send();
+  
+
+  if (result.inZone){
+    updateStatus('It is in zone')
+    document.getElementById('inZone').innerHTML= "Yes"
+  }
+  else
+  {
+    updateStatus('It is not in Zone')
+    document.getElementById('inZone').innerHTML= "No"
+  }
+  // Get HTML elements where results are displayed
+
+  document.getElementById('distance').innerHTML= result.distance
+  // ...
+  
   
   
   
@@ -61,9 +69,22 @@ function updateMonitoringData () {
 /**
  * Function to request the server to stop the motor
  */
-function stopSystem () {
+async function stopSystem () {
   //...
-  updateStatus('The motor and sensor monitoring will stop')
+  try {
+    // Make request to server
+    
+    let res = await axios.get('/stop_system')
+
+    // Update status
+    updateStatus('The motor and sensor monitoring will stop')
+    stopMonitoring(res.data)
+  } catch (e) {
+    console.log('Error starting the motor', e)
+    updateStatus('Error starting')
+  }
+
+
 }
 
 

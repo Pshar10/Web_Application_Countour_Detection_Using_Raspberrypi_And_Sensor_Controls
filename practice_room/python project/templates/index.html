@@ -16,6 +16,7 @@
         <div>
           <!-- 'Stop in zone' checkbox with corresponding request changing value clicking -->
           <button onclick="requestStartMotor()">Start motor</button>
+          <button onclick="stopSystem()">Stop motor</button>
 
           <!-- 'Stop system' button with corresponding request after clicking -->
           <!-- ... -->
@@ -31,9 +32,9 @@
 
     <!-- HTML elements for 'Distance' information -->
     <!-- ... -->
-    <div>distance:<span id="distance">%0%</span> </div>
+    <div>distance:<span id="distance"></span> </div>
     <!-- HTML elements for 'Is in zone?' information -->
-    <div>Is in Zone?: <span id="inZone">{{inZone}}</span></div>
+    <div>Is in Zone?: <span id="inZone"></span></div>
   </section>
   </body>
 </html>

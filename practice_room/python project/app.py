@@ -14,6 +14,7 @@ sensor_controller = SensorController()
 should_stop_in_zone = False
 
 
+
 @app.route('/')
 def index():
     return render_template('index.html') 
@@ -32,11 +33,14 @@ def video_feed():
 @app.route('/start_motor')
 def start_motor():
     # ... 
+    motor_controller.start_motor()
 
     return { 'success': True }
 
 @app.route('/monitor')
 def monitor():
+    #sensor_controller.track_rod()
+    #print(sensor_controller.get_distance())
     return jsonify({
         "inZone": opencv_controller.is_in_zone(),
         "distance": sensor_controller.get_distance()
@@ -45,7 +49,13 @@ def monitor():
 @app.route('/stop_system')
 def stop_system():
     # ...
-    return { 'success': True }
+    motor_controller.stop_motor()
+    # return { 'success': True }
+    return jsonify({
+        'success': True,
+        "inZone": "Stopped",
+        "distance": 0
+        })
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

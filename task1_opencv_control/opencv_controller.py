@@ -10,10 +10,10 @@ class OpenCVController(object):
     def get_frame(self, camera):
        
         # Starting the code
-        global p
-        global q
-        global r
-        global s
+      #   global p
+      #   global q
+      #   global r
+      #   global s
 
         frame = camera.get_frame()
         jpg_as_np = np.fromstring(frame, np.uint8)  
