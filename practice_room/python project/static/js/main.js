@@ -6,7 +6,7 @@ let monitoring = false
 async function requestStartMotor () {
   try {
     // Make request to server
-    await axios.get('/start_motor')
+    await axios.post('/start_motor') //get can be used
 
     // Update status
     updateStatus('Working')
@@ -24,8 +24,8 @@ async function startMonitoring () {
   monitoring = true
   while (monitoring) {
     let result = await axios.get('/monitor')
-    console.log(result.data.inZone)
-    console.log(result.data.distance)
+    //console.log(result.data.inZone)
+    //console.log(result.data.distance)
     updateMonitoringData(result.data)
   }
 }
@@ -74,7 +74,7 @@ async function stopSystem () {
   try {
     // Make request to server
     
-    let res = await axios.get('/stop_system')
+    let res = await axios.post('/stop_system')
 
     // Update status
     updateStatus('The motor and sensor monitoring will stop')
@@ -93,6 +93,16 @@ function updateStatus(statusText) {
   let motor_status_text = document.getElementById('status_text')
   motor_status_text.innerText = statusText
       
+
+}
+
+function requestStopInZone(){
+
+if(this.document.getElementById("should_stop_in_zone").checked = true)
+
+      {console.log("Do this")}
+     // this.document.getElementById("should_stop_in_zone").checked = false
+
 
 }
 

@@ -13,8 +13,11 @@
 
     <section id="actions">
       <h2>Actions</h2>
-        <div>
+        <div method="post">
           <!-- 'Stop in zone' checkbox with corresponding request changing value clicking -->
+          <input id="should_stop_in_zone" onchange="requestStopInZone()" name="stop_in_zone" type="checkbox">
+          <label for="should_stop_in_zone">Should Stop in zone</label>
+          <br><br>
           <button onclick="requestStartMotor()">Start motor</button>
           <button onclick="stopSystem()">Stop motor</button>
 

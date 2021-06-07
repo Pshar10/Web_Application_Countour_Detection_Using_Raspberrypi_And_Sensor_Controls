@@ -30,9 +30,10 @@ def video_feed():
     return Response(get_frame(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/start_motor')
+@app.route('/start_motor',methods=["POST"])
 def start_motor():
     # ... 
+    request.method== "POST"
     motor_controller.start_motor()
 
     return { 'success': True }
@@ -46,9 +47,10 @@ def monitor():
         "distance": sensor_controller.get_distance()
         })
 
-@app.route('/stop_system')
+@app.route('/stop_system',methods=["POST"])
 def stop_system():
     # ...
+    request.method== "POST"
     motor_controller.stop_motor()
     # return { 'success': True }
     return jsonify({
