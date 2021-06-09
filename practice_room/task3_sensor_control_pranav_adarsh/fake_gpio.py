@@ -24,17 +24,17 @@ class GPIO(object):
 
   @staticmethod
   def setmode(mode):
-    if (mode == GPIO.BCM):
-      print("Mode was set: ", mode)
+    if (mode == GPIO.BCM): pass
+      #print("Mode was set: ", mode)
     else:
       print("You are trying to set up the WRONG mode for this project: ", mode)
 
   @staticmethod
   def setup(channel, direction):
-    if (channel == GPIO.PIN_TRIGGER_ULTRASONIC):
-      print("Set up channel: ", GPIO.PIN_TRIGGER_ULTRASONIC_TEXT, " ", channel, ", Direction: ", direction)
-    elif (channel == GPIO.PIN_ECHO_ULTRASONIC):
-      print("Set up channel: ", GPIO.PIN_ECHO_ULTRASONIC_TEXT, " ", channel, ", Direction: ", direction)
+    if (channel == GPIO.PIN_TRIGGER_ULTRASONIC): pass
+      #print("Set up channel: ", GPIO.PIN_TRIGGER_ULTRASONIC_TEXT, " ", channel, ", Direction: ", direction)
+    elif (channel == GPIO.PIN_ECHO_ULTRASONIC): pass
+     # print("Set up channel: ", GPIO.PIN_ECHO_ULTRASONIC_TEXT, " ", channel, ", Direction: ", direction)
     elif (channel == GPIO.PIN_STEP_MOTOR):
       print("Set up channel: ", GPIO.PIN_STEP_MOTOR_TEXT, " ", channel, ", Direction: ", direction)
     elif (channel == GPIO.PIN_DIR_MOTOR):
@@ -47,10 +47,10 @@ class GPIO(object):
 
   @staticmethod
   def output(channel, value):
-    if (channel == GPIO.PIN_TRIGGER_ULTRASONIC):
-      print("Output channel: ", GPIO.PIN_TRIGGER_ULTRASONIC_TEXT, " ", channel, ", Value: ", value)
-    elif (channel == GPIO.PIN_STEP_MOTOR):
-      print("Output channel: ", GPIO.PIN_STEP_MOTOR_TEXT, " ", channel, ", Value: ", value)
+    if (channel == GPIO.PIN_TRIGGER_ULTRASONIC):pass
+      #print("Output channel: ", GPIO.PIN_TRIGGER_ULTRASONIC_TEXT, " ", channel, ", Value: ", value)
+    elif (channel == GPIO.PIN_STEP_MOTOR):pass
+      #print("Output channel: ", GPIO.PIN_STEP_MOTOR_TEXT, " ", channel, ", Value: ", value)
     elif (channel == GPIO.PIN_DIR_MOTOR):
       print("Output channel: ", GPIO.PIN_DIR_MOTOR_TEXT, " ", channel, ", Value: ", value)
     else:
@@ -61,8 +61,8 @@ class GPIO(object):
 
   @staticmethod
   def input(channel):
-    if (channel == GPIO.PIN_ECHO_ULTRASONIC):
-      print("Input in channel: ", GPIO.PIN_ECHO_ULTRASONIC_TEXT, " ", channel)
+    if (channel == GPIO.PIN_ECHO_ULTRASONIC): pass
+      #print("Input in channel: ", GPIO.PIN_ECHO_ULTRASONIC_TEXT, " ", channel)
     else:
       print("WRONG channel: ", channel)
 
