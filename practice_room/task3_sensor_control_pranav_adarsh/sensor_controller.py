@@ -36,17 +36,28 @@ class SensorController:
     return self.distance
 
 
-  def reading(self,arr):   
+  # def reading(self,arr,med):   
 
-    if len(arr)==10:
-      print("...................................")
-      if (np.std(arr)<0.5):
-        print("Kudos... you have the result")
-        flag=1
-        return flag
-      else:  
-        #print("Not there yet... appending the first item in the array")
-        # arr = arr[1:3]
-        # print(arr)
-        flag=0
-        return flag
+  #   if len(arr)==10:
+  #     print("...................................")
+  #     if (np.std(arr)<0.5):
+  #       print("Kudos... you have the result")
+  #       flag=1
+  #     else:  
+  #       print("Not there yet... appending the first item in the array")
+  #       flag=0
+
+  #     if flag==0:
+  #       if len(med)==40:
+  #         print(".....40 measurements done.....")
+  #         exit
+  #       else: 
+  #         arr = arr[1:11]  
+  #         return arr
+  #   #print(len(arr))
+  #     if flag ==1:
+  #       print("mean of arr : ", np.mean(arr))
+  #       exit
+  #   else:
+  #     return arr
+
