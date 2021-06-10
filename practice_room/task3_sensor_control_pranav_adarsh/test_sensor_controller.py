@@ -1,6 +1,6 @@
 from numpy.lib.function_base import _calculate_shapes
-from fake_gpio import GPIO # For testing in PC
-# import RPi.GPIO as GPIO # For testing in Raspberry Pi
+#from fake_gpio import GPIO # For testing in PC
+import RPi.GPIO as GPIO # For testing in Raspberry Pi
 import time
 import numpy as np
 class SensorController:
@@ -21,7 +21,7 @@ class SensorController:
     while True: 
       GPIO.output(self.PIN_TRIGGER, GPIO.LOW)    
       #print( "Waiting for sensor to settle")
-      time.sleep(0.1)
+      time.sleep(2)
       #print('Monitoring')
       GPIO.output(self.PIN_TRIGGER, GPIO.HIGH)
       time.sleep(0.00001)
@@ -36,10 +36,11 @@ class SensorController:
       d = round(pulse_duration * 17150, 2)
       count= np.append(count,d)
       arr = np.append(arr,d)
+      # arr = [1,1,1,1,1,1,1,1,1,1]
       if len(arr)==10:
         # print("...................................")
         if (np.std(arr)<0.5):
-          # print("Kudos... you have the result")
+        # print("Kudos... you have the result")
           flag=1
         else:  
           # print("Not there yet... appending the first item in the array")
@@ -51,9 +52,10 @@ class SensorController:
             self.distance= np.median(arr)
             break
           else: 
-            arr = arr[1:11]  
+            arr = arr[1:10]  
     #print(len(arr))
         if flag ==1:
+          # print("i am here")
           self.distance= np.mean(arr)
           break
 

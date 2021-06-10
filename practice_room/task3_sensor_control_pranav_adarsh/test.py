@@ -7,8 +7,8 @@ import numpy as np
 sensor_controller = SensorController()
 
 
-a= sensor_controller.track_rod()
-print("Distance: ", a)
+sensor_controller.track_rod()
+print("Distance: ", sensor_controller.get_distance())
   # count= np.append(med,(sensor_controller.get_distance()))
   # arr = np.append(arr,(sensor_controller.get_distance()))
   #time.sleep(2)  
