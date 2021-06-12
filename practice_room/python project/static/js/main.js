@@ -35,18 +35,19 @@ async function startMonitoring () {
  */
 function stopMonitoring (result) {
   monitoring = false
-  let d = new Date()
+  var today = new Date();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   // document.getElementById('inZone').innerHTML= result.inZone
   document.getElementById('distance').innerHTML= result.distance
 
   if (result.inZone){
     updateStatus('The motor has stopped and the Object is in the Zone')
-    document.getElementById('inZone').innerHTML= "Yes　　　　Last　updated　at　"+d
+    document.getElementById('inZone').innerHTML= "Yes　　　　Last　updated　at　"+time
   }
   else
   {
     updateStatus('The motor has stopped and the Object is not in the Zone')
-    document.getElementById('inZone').innerHTML= "No　　　　Last　updated　at　"+d
+    document.getElementById('inZone').innerHTML= "No　　　　Last　updated　at　"+time
   }
 
 }
