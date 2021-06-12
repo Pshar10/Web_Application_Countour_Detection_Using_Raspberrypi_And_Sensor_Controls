@@ -1,6 +1,6 @@
 from numpy.lib.function_base import _calculate_shapes
-#from fake_gpio import GPIO # For testing in PC
-import RPi.GPIO as GPIO # For testing in Raspberry Pi
+from fake_gpio import GPIO # For testing in PC
+#import RPi.GPIO as GPIO # For testing in Raspberry Pi
 import time
 import numpy as np
 class SensorController:
