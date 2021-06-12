@@ -35,8 +35,8 @@ class SensorController:
       pulse_duration = pulse_end_time - pulse_start_time
       d = round(pulse_duration * 17150, 2)
       count= np.append(count,d)
-      arr = np.append(arr,d)
-      # arr = [1,1,1,1,1,1,1,1,1,1]
+      # arr = np.append(arr,d)
+      arr = [1,1,1,1,1,1,1,1,1,1]
       if len(arr)==10:
         # print("...................................")
         if (np.std(arr)<0.5):

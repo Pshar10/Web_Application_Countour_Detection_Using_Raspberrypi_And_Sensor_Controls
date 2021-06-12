@@ -1,5 +1,7 @@
 import cv2
 import numpy as np #used here for dealing with different arrays
+from imutils.video.pivideostream import PiVideoStream
+import time
 
 class OpenCVController(object):
 

@@ -35,9 +35,20 @@ async function startMonitoring () {
  */
 function stopMonitoring (result) {
   monitoring = false
-
-  document.getElementById('inZone').innerHTML= result.inZone
+  let d = new Date()
+  // document.getElementById('inZone').innerHTML= result.inZone
   document.getElementById('distance').innerHTML= result.distance
+
+  if (result.inZone){
+    updateStatus('The motor has stopped and the Object is in the Zone')
+    document.getElementById('inZone').innerHTML= "Yes　　　　Last　updated　at　"+d
+  }
+  else
+  {
+    updateStatus('The motor has stopped and the Object is not in the Zone')
+    document.getElementById('inZone').innerHTML= "No　　　　Last　updated　at　"+d
+  }
+
 }
 
 /**

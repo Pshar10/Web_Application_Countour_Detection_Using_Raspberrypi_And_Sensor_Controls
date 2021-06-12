@@ -44,19 +44,20 @@ def monitor():
     #print(sensor_controller.get_distance())
     return jsonify({
         "inZone": opencv_controller.is_in_zone(),
-        "distance": sensor_controller.get_distance()
+        "distance": "Waiting for the motor to stop..."
         })
 
 @app.route('/stop_system',methods=["POST"])
 def stop_system():
     # ...
+    sensor_controller.track_rod()
     request.method== "POST"
     motor_controller.stop_motor()
     # return { 'success': True }
     return jsonify({
         'success': True,
-        "inZone": "Stopped",
-        "distance": 0
+        "inZone": opencv_controller.is_in_zone(),
+        "distance": sensor_controller.get_distance()
         })
 
 if __name__ == '__main__':

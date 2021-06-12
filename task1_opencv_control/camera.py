@@ -4,7 +4,11 @@
 # picamera module and implement the get_frame properly  
 
 from time import time
+from imutils.video.pivideostream import PiVideoStream
+import imutils
 import os, sys
+import numpy as np
+
 
 class Camera(object):
     def __init__(self):
