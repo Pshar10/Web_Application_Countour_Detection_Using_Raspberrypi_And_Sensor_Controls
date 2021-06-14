@@ -13,8 +13,6 @@ opencv_controller = OpenCVController()
 sensor_controller = SensorController()
 should_stop_in_zone = False
 
-
-
 @app.route('/')
 def index():
     return render_template('index.html') 

@@ -1,10 +1,15 @@
 import cv2
 import numpy as np #used here for dealing with different arrays
+# import io
+# import time
+# from imutils.video.pivideostream import PiVideoStream
+# import imutils
 
 class OpenCVController(object):
 
     def __init__(self):  #used here to define all the instances   
         self.in_zone = False
+      # self.stream = PiVideoStream().start()
         print('OpenCV controller initiated')
 
     def get_frame(self, camera):
@@ -15,9 +20,14 @@ class OpenCVController(object):
         global r
         global s
 
+      # frame = self.stream.read()  # uncomment it for real raspi
+      # img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) # uncomment it for real raspi
+
+#------------------------------------This is only in case of FAKE GPIO  -----------------------------------------
         frame = camera.get_frame()
         jpg_as_np = np.fromstring(frame, np.uint8)  
         img = cv2.imdecode(jpg_as_np, cv2.COLOR_BGR2RGB)
+#-----------------------------------------------------------------------------        
 
   # Converting RGB frame to HSV
         hsvFrame = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
