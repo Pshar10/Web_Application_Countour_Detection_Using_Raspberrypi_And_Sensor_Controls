@@ -60,12 +60,12 @@ function updateMonitoringData (result){
   
 
   if (result.inZone){
-    updateStatus('It is in zone')
+    updateStatus('Showing the Inzone variable first , please stop the system to get distance')
     document.getElementById('inZone').innerHTML= "Yes"
   }
   else
   {
-    updateStatus('It is not in Zone')
+    updateStatus('Showing the Inzone variable first , please stop the system to get distance')
     document.getElementById('inZone').innerHTML= "No"
   }
   // Get HTML elements where results are displayed

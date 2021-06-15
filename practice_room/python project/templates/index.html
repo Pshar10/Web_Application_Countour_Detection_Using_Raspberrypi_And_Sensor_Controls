@@ -31,7 +31,7 @@
           <label for="should_stop_in_zone">Should Stop in zone</label>
           <br><br>
           <button class="btn" onclick="requestStartMotor()">Start motor</button>
-          <button class="btn" onclick="stopSystem()">Stop motor</button>
+          <button class="btn" onclick="stopSystem()">Stop System</button>
 
           <!-- 'Stop system' button with corresponding request after clicking -->
           <!-- ... -->
@@ -43,13 +43,13 @@
     <h2>Monitoring information</h2>
     <!-- HTML elements for 'Motor status' information -->
     <!-- ... -->
-    <p class = "status"><b>Status:</b> <span id="status_text"></span></p>
+    <p class = "status"><b>Status: </b> <span id="status_text"> Please start the system</span></p>
 
     <!-- HTML elements for 'Distance' information -->
     <!-- ... -->
-    <div class="monitor">distance:<span id="distance"></span> </div>
+    <div class="monitor">distance:<span id="distance">Waiting...</span> </div>
     <!-- HTML elements for 'Is in zone?' information -->
-    <div class="monitor">Is in Zone?: <span id="inZone"></span></div>
+    <div class="monitor">Is in Zone?: <span id="inZone">Waiting...</span></div>
   </section>
   </body>
 </html>

@@ -30,11 +30,12 @@ def video_feed():
 
 @app.route('/start_motor',methods=["POST"])
 def start_motor():
-    # ... 
+    # ...     
     request.method== "POST"
     motor_controller.start_motor()
-
-    return { 'success': True }
+    return jsonify({
+        'success': True
+        })
 
 @app.route('/monitor')
 def monitor():
@@ -42,15 +43,15 @@ def monitor():
     #print(sensor_controller.get_distance())
     return jsonify({
         "inZone": opencv_controller.is_in_zone(),
-        "distance": "Waiting for the motor to stop..."
+        "distance": "Waiting..."
         })
 
 @app.route('/stop_system',methods=["POST"])
 def stop_system():
     # ...
-    sensor_controller.track_rod()
     request.method== "POST"
     motor_controller.stop_motor()
+    sensor_controller.track_rod()
     # return { 'success': True }
     return jsonify({
         'success': True,
