@@ -84,7 +84,7 @@ class MotorController(object):
         break
 
     #print("Motor Working Status: Stopped") ## showing status of motor to started
-      # print(self.working)
+    # print(self.working)
 
   def stop_motor(self):
 
@@ -97,7 +97,7 @@ class MotorController(object):
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(self.PIN_DIR, GPIO.OUT)
     GPIO.setup(self.PIN_STEP, GPIO.OUT)
-
+    
     # Setting stepper pin low
     GPIO.output(self.PIN_STEP,GPIO.LOW)
 

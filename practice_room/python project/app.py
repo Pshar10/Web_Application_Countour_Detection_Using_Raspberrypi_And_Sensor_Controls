@@ -19,13 +19,13 @@ def index():
 
 def get_frame(camera):
     while True:
-        frame = opencv_controller.get_frame(camera)
+        frame = opencv_controller.get_frame(camera) #remove the camera when using raspi
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')            
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(get_frame(Camera()),
+    return Response(get_frame(Camera()), # replace Camera() by  opencv_controller
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/start_motor',methods=["POST"])
