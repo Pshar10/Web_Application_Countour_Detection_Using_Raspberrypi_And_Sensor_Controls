@@ -20,7 +20,7 @@ class MotorController(object):
     self.PIN_STEP = 25 # do not change
     self.PIN_DIR = 8 # do not change
     self.working = True
-    SPR = 200 # 1 step = 0.225 degree  and we have to rotate for 45 degrees
+    SPR = 400 # 1 step = 0.225 degree  and we have to rotate for 90 degrees
     # CW=1 # clockwise
     # CCW=0 #anti clockwise
     # ...
@@ -33,7 +33,7 @@ class MotorController(object):
     cnt = 0
     while(True):
       cnt = cnt+1
-      print("Starting to rotate in clockwise direction for 45 degrees")
+      print("Starting to rotate in clockwise direction for 90 degrees")
 
     # Motor direction setup Clockwise
       GPIO.output(self.PIN_DIR,GPIO.LOW)
@@ -44,26 +44,26 @@ class MotorController(object):
         GPIO.output(self.PIN_STEP,GPIO.HIGH)
         time.sleep(delay)
         GPIO.output(self.PIN_STEP,GPIO.LOW)
-      print("Motor has rotated clockwise for 45 degrees")
+      print("Motor has rotated clockwise for 90 degrees")
       time.sleep(0.5)
 
    
    
-      print("Aiming for 75 degrees")
+      print("Aiming for 270 degrees")
 
-      step_count = 333 # for 30 degree more rotation
+      step_count = 1200 # for 270 degree more rotation
 
       for x in range(step_count):
         GPIO.output(self.PIN_STEP,GPIO.HIGH)
         time.sleep(0.003)
         GPIO.output(self.PIN_STEP,GPIO.LOW)
 
-      print("Motor has rotated clockwise for 75 degrees now changing the direction ")
+      print("Motor has rotated clockwise for 270 degrees now changing the direction ")
       time.sleep(0.5)
 
 
     # Motor direction setup AntiClockwise
-      print("Motor Started rotating 45 degree anticlockwise")
+      print("Motor Started rotating 90 degree anticlockwise")
       GPIO.output(self.PIN_DIR,GPIO.HIGH)
       step_count = SPR
       delay = 0.005
@@ -71,7 +71,7 @@ class MotorController(object):
         GPIO.output(self.PIN_STEP,GPIO.HIGH)
         time.sleep(delay)
         GPIO.output(self.PIN_STEP,GPIO.LOW)
-      print("Motor has rotated anti-clockwise for 45 degrees")
+      print("Motor has rotated anti-clockwise for 90 degrees")
       print(".....................................................")
       print(cnt," cycle complete")
 
