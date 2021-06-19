@@ -17,7 +17,7 @@ class SensorController:
     GPIO.setup(self.PIN_ECHO, GPIO.IN)
     GPIO.output(self.PIN_TRIGGER, GPIO.LOW)    
     #print( "Waiting for sensor to settle")
-    time.sleep(0.1)
+    # ##################################time.sleep(0.1)
     #print('Monitoring')
     GPIO.output(self.PIN_TRIGGER, GPIO.HIGH)
     time.sleep(0.00001)
@@ -36,28 +36,17 @@ class SensorController:
     return self.distance
 
 
-  # def reading(self,arr,med):   
+  # def reading(self,arr,count):   
 
-  #   if len(arr)==10:
+  #   if len(arr)==5:
   #     print("...................................")
   #     if (np.std(arr)<0.5):
   #       print("Kudos... you have the result")
   #       flag=1
+  #       return flag
   #     else:  
   #       print("Not there yet... appending the first item in the array")
   #       flag=0
+  #       return flag
 
-  #     if flag==0:
-  #       if len(med)==40:
-  #         print(".....40 measurements done.....")
-  #         exit
-  #       else: 
-  #         arr = arr[1:11]  
-  #         return arr
-  #   #print(len(arr))
-  #     if flag ==1:
-  #       print("mean of arr : ", np.mean(arr))
-  #       exit
-  #   else:
-  #     return arr
 

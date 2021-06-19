@@ -21,7 +21,7 @@ class SensorController:
     while True: 
       GPIO.output(self.PIN_TRIGGER, GPIO.LOW)    
       #print( "Waiting for sensor to settle")
-      time.sleep(2)
+      time.sleep(0.5)
       #print('Monitoring')
       GPIO.output(self.PIN_TRIGGER, GPIO.HIGH)
       time.sleep(0.00001)

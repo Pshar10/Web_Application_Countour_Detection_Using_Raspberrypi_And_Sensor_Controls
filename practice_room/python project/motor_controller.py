@@ -21,9 +21,7 @@ class MotorController(object):
     self.PIN_DIR = 8 # do not change
     self.working = True
     SPR = 400 # 1 step = 0.225 degree  and we have to rotate for 90 degrees
-    # CW=1 # clockwise
-    # CCW=0 #anti clockwise
-    # ...
+    
     #print('Motor working status: Started') # showing status of motor to started
 
     # PIN SETUP MODE
@@ -100,5 +98,3 @@ class MotorController(object):
     
     # Setting stepper pin low
     GPIO.output(self.PIN_STEP,GPIO.LOW)
-
-

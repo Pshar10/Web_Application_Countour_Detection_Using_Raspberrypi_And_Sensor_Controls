@@ -105,7 +105,7 @@ class OpenCVController(object):
         #return img
         ret, jpeg = cv2.imencode('.jpg', img)
         return jpeg.tobytes()
-
+        
     def is_in_zone(self):
         
         return self.in_zone
