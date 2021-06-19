@@ -1,4 +1,3 @@
-
 # Importing important libraries
 from fake_gpio import GPIO  #For testing in PC
 #import RPi.GPIO as GPIO    #For testing in Raspberry Pi

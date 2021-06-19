@@ -11,7 +11,6 @@
 
 ###############################################code for the main RaspberryPi##########################################################
 
-
 from sensor_controller import SensorController
 import numpy as np
 
