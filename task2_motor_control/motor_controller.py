@@ -1,6 +1,6 @@
-from fake_gpio import GPIO
+#from fake_gpio import GPIO
 import time # For testing in PC
-# import RPi.GPIO as GPIO # For testing in Raspberry Pi
+import RPi.GPIO as GPIO # For testing in Raspberry Pi
 # import ...
 
 class MotorController(object):
@@ -37,7 +37,7 @@ class MotorController(object):
       time.sleep(delay)
       GPIO.output(self.PIN_STEP,GPIO.LOW)
     print("Motor has rotated clockwise for 90 degrees")
-    time.sleep(0.5)
+    time.sleep(2)
 
    
    
@@ -51,7 +51,7 @@ class MotorController(object):
       GPIO.output(self.PIN_STEP,GPIO.LOW)
 
     print("Motor has rotated clockwise for 270 degrees now changing the direction ")
-    time.sleep(0.5)
+    time.sleep(2)
 
 
     
@@ -67,7 +67,7 @@ class MotorController(object):
     print(".....................................................")
     print("One cycle complete")
 
-    time.sleep(0.5)
+    time.sleep(2)
 
     self.working = False
 
