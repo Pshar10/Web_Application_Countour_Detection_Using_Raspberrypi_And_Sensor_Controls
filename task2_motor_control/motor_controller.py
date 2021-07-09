@@ -102,6 +102,7 @@ class MotorController(object):
       time.sleep(2)
 
       if (cnt == 1):# for now it runs one time if not stopped
+        self.working = False
         break
       
       if (self.working == False):
@@ -110,7 +111,7 @@ class MotorController(object):
 
     
     print("Motor has stopped")
-    #print("Motor Working Status: Stopped") ## showing status of motor to started
+    print("Motor Working Status: ", self.working) ## showing status of motor to started
     # print(self.working)
 
   def stop_motor(self):
