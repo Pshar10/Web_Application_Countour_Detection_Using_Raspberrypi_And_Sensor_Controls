@@ -4,18 +4,31 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='vendor/axios/axios.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <style>
+
+
+      body {
+      
+        background-image: url({{ url_for ('static' , filename='img/p.jpg')}})
+
+        /* "Blue background with black frame" by publicstock is marked with CC0 1.0 */
+        
+      }
+
+      </style>
   </head>
   <body>
     <section id="streaming_viewer">
-      <h1 align="center">Rod tracker</h1>
+      <h1 align="center">Rod tracker (GROUP-D)</h1>
       <img id="background" class="center" src="{{ url_for('video_feed') }}">
     </section>
 
     <section id="actions">
-      <h2>Actions</h2>
-        <div>
-          <!-- 'Stop in zone' checkbox with corresponding request changing value clicking -->
-          <button onclick="requestStartMotor()">Start motor</button>
+      <h2><b style="font-size:28px;">Actions</b></h2>
+        <div method="post">
+          <!-- 'requestStartMotor' button with corresponding request changing value clicking -->
+          <button class="btn" onclick="requestStartMotor()">Start motor</button>
+          <button class="btn" onclick="stopSystem()">Stop system</button>
 
           <!-- 'Stop system' button with corresponding request after clicking -->
           <!-- ... -->
@@ -27,13 +40,13 @@
     <h2>Monitoring information</h2>
     <!-- HTML elements for 'Motor status' information -->
     <!-- ... -->
-    <p><b>Status:</b> <span id="status_text"></span></p>
+    <p class = "status"><b>Status: </b> <span id="status_text"> Please start the system</span></p>
 
     <!-- HTML elements for 'Distance' information -->
     <!-- ... -->
-
+    <div class="monitor"><b>Distance(cm):</b><span id="Distance">Waiting...</span> </div>
     <!-- HTML elements for 'Is in zone?' information -->
-    <!-- ... -->
+    <div class="monitor"><b>Is in Zone?: </b><span id="inZone">Waiting...</span></div>
   </section>
   </body>
 </html>
